@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <div class="form-group">
+        {{form.question.label(class="form-control-label")}}
+        {% if form.question.errors %}
+        {{form.question(class="form-control form-control-lg is-invalid")}}
+        <div class="invalid-feedback">
+          {% for error in form.question.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{form.question(class="form-control form-control-lg")}}
+        {% endif %}
+      </div>
+      <br>
+      <div class="form-group">
+        {{form.choice.label(class="form-control-label")}}
+        {% if form.choice.errors %}
+        {{form.choice(class="form-control form-control-lg is-invalid")}}
+        <div class="invalid-feedback">
+          {% for error in form.choice.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{form.choice(class="form-control form-control-lg")}}
+        {% endif %}
+      </div>
+      <br>
+      <div class="form-group">
+        {{form.context.label(class="form-control-label")}}
+        {% if form.context.errors %}
+        {{form.context(class="form-control form-control-lg is-invalid")}}
+        <div class="invalid-feedback">
+          {% for error in form.context.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %}
+        {{form.context(class="form-control form-control-lg")}}
+        {% endif %}
+      </div>
+      <br>
+      <div class="form-group">
+        {{form.submit(class="btn btn-outline-info")}}
+      </div>
+    </fieldset>
+  </form>
+</div>
+{% endblock content %}
